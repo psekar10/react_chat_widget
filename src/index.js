@@ -14,8 +14,6 @@ export default {
         return {
           render: () => {
             ReactDOM.render(<ChatWidget
-                // clientKey="1233444"
-                // headerTitle={init.headerTitle}
                 selector="#chat-app"
             />, document.querySelector('#chat-app'));
           },
