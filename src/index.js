@@ -13,14 +13,14 @@ export default {
       new: () => {
         return {
           render: () => {
-            ReactDOM.render(<ChatWidget 
-                clientKey={init.apiKey}
+            ReactDOM.render(<ChatWidget
+                clientKey="1233444"
                 headerTitle={init.headerTitle}
-                selector={init.selector}  
+                selector="#chat-app"
             />, document.querySelector('#chat-app'));
           },
           unmount(){
-            ReactDOM.unmountComponentAtNode(document.querySelector(init.selector)); 
+            ReactDOM.unmountComponentAtNode(document.querySelector(init.selector));
           },
         }
       }
