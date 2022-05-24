@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import ChatBot from 'react-simple-chatbot';
 import { Widget } from 'react-chat-widget';
 import 'react-chat-widget/lib/styles.css';
 
