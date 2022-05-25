@@ -13,8 +13,11 @@ export default {
       new: () => {
         return {
           render: () => {
+            console.log('init', init)
             ReactDOM.render(<ChatWidget
-                selector="#chat-app"
+                clientKey={init.apiKey}
+                headerTitle={init.headerTitle}
+                selector={init.selector}
             />, document.querySelector('#chat-app'));
           },
           unmount(){
