@@ -37,6 +37,18 @@ import 'react-simple-chat/src/components/index.css';
 // }
 
 const SmartChat = (props) =>{
+  return (
+    <Chat
+      title="Jane Doe"
+      user={{ id: 1 }}
+      messages={[]}
+      // onSend={message => setMessages([...messages, message])}
+    />
+  )
+
+}
+
+// const SmartChat = (props) =>{
   // const [ open, setOpen ] = useState(false);
   // const [ headerTitle, setheaderTitle ] = useState('Chat');
   // useEffect(() => {
@@ -48,13 +60,8 @@ const SmartChat = (props) =>{
   //   setOpen(!open)
   // }
 
-  return (
-    <Chat
-      title="Jane Doe"
-      user={{ id: 1 }}
-      messages={[]}
-      // onSend={message => setMessages([...messages, message])}
-    />
+  // return (
+
     // <ChatBot
     //   floating={true}
     //   opened={open}
@@ -126,7 +133,7 @@ const SmartChat = (props) =>{
     //     }
     //   ]}
     // />
-  )
-}
+//   )
+// }
 
 export default SmartChat;
