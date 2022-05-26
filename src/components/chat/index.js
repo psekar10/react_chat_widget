@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 // import { Widget } from 'react-chat-widget';
-import ChatBot from 'react-simple-chatbot';
-import Chat, { Message } from 'react-simple-chat';
+// import ChatBot from 'react-simple-chatbot';
+import Chat from 'react-simple-chat';
 // Chat styles
 import 'react-simple-chat/src/components/index.css';
 // import './chat.css';
