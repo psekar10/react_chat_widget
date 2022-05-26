@@ -6,61 +6,47 @@ import Chat from 'react-simple-chat';
 import 'react-simple-chat/src/components/index.css';
 // import './chat.css';
 
-const GitHubUrl = (props) =>{
+// const GitHubUrl = (props) =>{
 
-  useEffect(() => {
-    props.triggerNextStep()
-  }, [])
-  return (
-    <div>
-      here: <a href="https://github.com/drawrowfly/react-chat-widget" target="_blank"> GitHub </a>
-    </div>
-  )
-}
-
-const CdnSection = (props) =>{
-
-  useEffect(() => {
-    location.hash = "#cdn";
-    props.triggerNextStep()
-  }, [])
-  return ('Going to CDN section')
-}
-
-const CreateAppSection = (props) =>{
-
-  useEffect(() => {
-    location.hash = "#create-react-app";
-    props.triggerNextStep()
-  }, [])
-  return ('Going to Create React App section')
-}
-
-// function SmartChat() {
-//   const handleNewUserMessage = (newMessage) => {
-//     console.log(`New message incoming! ${newMessage}`);
-//     // Now send the message throught the backend API
-//   };
-
+//   useEffect(() => {
+//     props.triggerNextStep()
+//   }, [])
 //   return (
-//       <Widget
-//         handleNewUserMessage={handleNewUserMessage}
-//       />
-//   );
+//     <div>
+//       here: <a href="https://github.com/drawrowfly/react-chat-widget" target="_blank"> GitHub </a>
+//     </div>
+//   )
 // }
 
+// const CdnSection = (props) =>{
+
+//   useEffect(() => {
+//     location.hash = "#cdn";
+//     props.triggerNextStep()
+//   }, [])
+//   return ('Going to CDN section')
+// }
+
+// const CreateAppSection = (props) =>{
+
+//   useEffect(() => {
+//     location.hash = "#create-react-app";
+//     props.triggerNextStep()
+//   }, [])
+//   return ('Going to Create React App section')
+// }
 
 const SmartChat = (props) =>{
-  const [ open, setOpen ] = useState(false);
-  const [ headerTitle, setheaderTitle ] = useState('Chat');
-  useEffect(() => {
-    if (props.headerTitle){
-      setheaderTitle(props.headerTitle);
-    }
-  },[])
-  const toggleFloating = () =>{
-    setOpen(!open)
-  }
+  // const [ open, setOpen ] = useState(false);
+  // const [ headerTitle, setheaderTitle ] = useState('Chat');
+  // useEffect(() => {
+  //   if (props.headerTitle){
+  //     setheaderTitle(props.headerTitle);
+  //   }
+  // },[])
+  // const toggleFloating = () =>{
+  //   setOpen(!open)
+  // }
 
   return (
     <Chat
