@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react';
-// import { Widget } from 'react-chat-widget';
+import React from 'react';
+import { Widget } from 'react-chat-widget';
 // import ChatBot from 'react-simple-chatbot';
-import Chat from 'react-simple-chat';
+// import Chat from 'react-simple-chat';
 // Chat styles
-import 'react-simple-chat/src/components/index.css';
+// import 'react-simple-chat/src/components/index.css';
 // import './chat.css';
+import 'react-chat-widget/lib/styles.css';
 
 // const GitHubUrl = (props) =>{
 
@@ -36,13 +37,18 @@ import 'react-simple-chat/src/components/index.css';
 //   return ('Going to Create React App section')
 // }
 
+
+
 const SmartChat = (props) =>{
+  console.log('props', props);
+  const handleNewUserMessage = (newMessage) => {
+    console.log(`New message incoming! ${newMessage}`);
+    // Now send the message throught the backend API
+  };
+
   return (
-    <Chat
-      title="Jane Doe"
-      user={{ id: 1 }}
-      messages={[]}
-      // onSend={message => setMessages([...messages, message])}
+    <Widget
+      handleNewUserMessage={handleNewUserMessage}
     />
   )
 
