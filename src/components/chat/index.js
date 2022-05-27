@@ -1,5 +1,5 @@
 import React from 'react';
-import { Widget } from 'react-chat-widget';å
+import { Widget } from 'react-chat-widget';
 import 'react-chat-widget/lib/styles.css';
 
 const SmartChat = (props) =>{
