@@ -15,7 +15,7 @@ export default {
           render: () => {
             console.log('init', init)
             ReactDOM.render(<ChatWidget
-                clientKey={init.apiKey}
+                clientKey={init.clientKey}
                 headerTitle={init.headerTitle}
                 selector={init.selector}
             />, document.querySelector('#chat-app'));
