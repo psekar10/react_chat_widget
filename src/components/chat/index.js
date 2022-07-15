@@ -1,6 +1,4 @@
-import React, { useState } from "react";
-import { Widget } from "react-chat-widget";
-import "react-chat-widget/lib/styles.css";
+import React, { useState, useEffect } from "react";
 import { keyframes } from "@emotion/react";
 import styled from "@emotion/styled";
 
@@ -8,39 +6,44 @@ import { SvgMapping } from "../../utils/constants";
 import { mockItems } from "../../utils/data";
 
 const SmartChat = (props) => {
-  const [toggleVal, setToggleVal] = useState(false);
+  const [showSocialIcons, setShowSocialIcons] = useState(false);
+  const [socialIconLists, setSocialIconLists] = useState([]);
 
-  const [items, setItems] = useState(mockItems);
+  const handleSocialIconsToggle = () => setShowSocialIcons(!showSocialIcons);
 
-  const handleNewUserMessage = (newMessage) => {
-    console.log(`New message incoming! ${newMessage}`);
-    // Now send the message throught the backend API
+  const handleItemClick = (item) => {
+    if (item.id === "contact") {
+      handleSocialIconsToggle();
+    } else {
+      window.open(item.url, "_blank", "noopener,noreferrer");
+    }
   };
 
-  const handleToggle = () => setToggleVal(!toggleVal);
+  useEffect(() => {
+    setSocialIconLists(mockItems);
+  }, []);
 
   return (
-    <>
-      {/* <Widget handleNewUserMessage={handleNewUserMessage} /> */}
-
-      <ChatComponent>
-        {toggleVal &&
-          items &&
-          items.map((item) => {
-            const IconsComponent = SvgMapping[item.id];
-            return (
-              <ItemsList key={item.id} target="_blank" href={item.url}>
-                <IconsComponent width="24px" height="24px" />
-                <p>{item.name}</p>
-              </ItemsList>
-            );
-          })}
-
-        <ChatButton onClick={handleToggle}>
-          {toggleVal && <CloseIcon>x</CloseIcon>}
-        </ChatButton>
-      </ChatComponent>
-    </>
+    <ChatComponent>
+      {showSocialIcons &&
+        socialIconLists &&
+        socialIconLists.map((item) => {
+          const IconsComponent = SvgMapping[item.id];
+          return (
+            <ItemsList
+              key={item.id}
+              target="_blank"
+              onClick={() => handleItemClick(item)}
+            >
+              <IconsComponent width="24px" height="24px" />
+              <p>{item.name}</p>
+            </ItemsList>
+          );
+        })}
+      <ChatButton onClick={handleSocialIconsToggle}>
+        {showSocialIcons ? <CloseIcon>x</CloseIcon> : null}
+      </ChatButton>
+    </ChatComponent>
   );
 };
 
@@ -76,7 +79,7 @@ const ChatButton = styled.button`
 `;
 
 const CloseIcon = styled.span`
-  position: fixed;
+  position: absolute;
   right: 9px;
   width: 16px;
   height: 16px;
@@ -103,6 +106,7 @@ const ItemsList = styled.a`
   padding: 10px 20px;
   border-radius: 5px 0px 0px 5px;
   border-width: 2px;
+  background: white;
   display: flex;
   align-items: center;
   text-align: right;
@@ -115,10 +119,11 @@ const ItemsList = styled.a`
   align-self: flex-end;
   &:hover {
     background-color: #f0eff1;
-    animation: ${shake} 2s 1;
+    animation: ${shake} 1s 1;
     transform: scale(1.1);
   }
   p {
     margin: 0 0 0 8px;
+    font-family: Public Sans, -apple-system, Helvetica, sans-serif;
   }
 `;
