@@ -3,18 +3,26 @@ import styled from "@emotion/styled";
 
 import SocialChatItems from "../socialChatItems";
 import SocialChatButton from "../socialChatButton";
+import SocialContactForm from "../socialContactForm";
 
 import { mockItems } from "../../utils/data";
 
 const Chat = (props) => {
   const [showSocialIcons, setShowSocialIcons] = useState(false);
+  const [showContactForm, setShowContactForm] = useState(false);
   const [socialIconLists, setSocialIconLists] = useState([]);
 
-  const handleSocialIconsToggle = () => setShowSocialIcons(!showSocialIcons);
+  const handleSocialIconsToggle = () => {
+    showContactForm
+      ? setShowSocialIcons(false)
+      : setShowSocialIcons(!showSocialIcons);
+    setShowContactForm(false);
+  };
 
   const handleItemClick = (item) => {
     if (item.id === "contact") {
-      handleSocialIconsToggle();
+      setShowSocialIcons(false);
+      setShowContactForm(true);
     } else {
       window.open(item.url, "_blank", "noopener,noreferrer");
     }
@@ -32,9 +40,13 @@ const Chat = (props) => {
           handleItemClick={handleItemClick}
         />
       ) : null}
+
+      {showContactForm ? <SocialContactForm /> : null}
+
       <SocialChatButton
         handleSocialIconsToggle={handleSocialIconsToggle}
         showSocialIcons={showSocialIcons}
+        showContactForm={showContactForm}
       />
     </ChatComponent>
   );

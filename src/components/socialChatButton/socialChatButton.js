@@ -1,15 +1,19 @@
 import React from "react";
 import styled from "@emotion/styled";
 
-const SocialChatButton = ({ handleSocialIconsToggle, showSocialIcons }) => {
+const SocialChatButton = ({
+  handleSocialIconsToggle,
+  showSocialIcons,
+  showContactForm,
+}) => {
   return (
     <ChatButton onClick={handleSocialIconsToggle}>
-      {showSocialIcons ? <CloseIcon>x</CloseIcon> : null}
+      {showSocialIcons || showContactForm ? <CloseIcon>x</CloseIcon> : null}
     </ChatButton>
   );
 };
 
-export default SocialChatButton;
+export default React.memo(SocialChatButton);
 
 const ChatButton = styled.button`
   background: #35cce6;

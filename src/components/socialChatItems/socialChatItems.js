@@ -25,7 +25,7 @@ const SocialChatItems = ({ socialIconLists, handleItemClick }) => {
     : null;
 };
 
-export default SocialChatItems;
+export default React.memo(SocialChatItems);
 
 const shake = keyframes`
   0% { transform: translate(1px, 1px) rotate(0deg); }
