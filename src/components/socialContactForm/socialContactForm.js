@@ -31,7 +31,7 @@ const FormContainer = styled.form`
 `;
 
 const InputForm = styled.input`
-  font-size: 14px;
+  font-size: 0.875rem;
   padding: 8px 16px;
   min-height: 24px;
   margin-bottom: 8px;
@@ -41,7 +41,7 @@ const InputForm = styled.input`
 `;
 
 const TextareaForm = styled.textarea`
-  font-size: 14px;
+  font-size: 0.875rem;
   padding: 8px 16px;
   margin-bottom: 8px;
   font-family: sans-serif;

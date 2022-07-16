@@ -44,7 +44,7 @@ const ItemsList = styled.a`
   display: flex;
   align-items: center;
   text-align: right;
-  font-size: 16px;
+  font-size: 1rem;
   text-decoration: none;
   color: black;
   box-shadow: rgb(0 0 0 / 13%) 0px 5px 8px 0px;
@@ -59,5 +59,6 @@ const ItemsList = styled.a`
   p {
     margin: 0 0 0 8px;
     font-family: Public Sans, -apple-system, Helvetica, sans-serif;
+    font-size: 0.938rem;
   }
 `;

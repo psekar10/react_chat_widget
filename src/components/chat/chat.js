@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import styled from "@emotion/styled";
 
 import SocialChatItems from "../socialChatItems";
@@ -6,11 +6,14 @@ import SocialChatButton from "../socialChatButton";
 import SocialContactForm from "../socialContactForm";
 
 import { mockItems } from "../../utils/data";
+import useOutsideAlerter from "../../hooks/useOutsideAlerter";
 
 const Chat = (props) => {
+  const wrapperRef = useRef(null);
   const [showSocialIcons, setShowSocialIcons] = useState(false);
   const [showContactForm, setShowContactForm] = useState(false);
   const [socialIconLists, setSocialIconLists] = useState([]);
+  useOutsideAlerter(wrapperRef, setShowSocialIcons);
 
   const handleSocialIconsToggle = () => {
     showContactForm
@@ -33,7 +36,7 @@ const Chat = (props) => {
   }, []);
 
   return (
-    <ChatComponent>
+    <ChatComponent ref={wrapperRef}>
       {showSocialIcons ? (
         <SocialChatItems
           socialIconLists={socialIconLists}
