@@ -1,8 +1,9 @@
 import {
+  ChatSvg,
   MailSvg,
+  NewsletterSvg,
   TwitterSvg,
   WhatsappSvg,
-  NewsletterSvg,
 } from "../components/assets/index";
 
 export const SvgMapping = {
@@ -10,4 +11,5 @@ export const SvgMapping = {
   twitter: TwitterSvg,
   contact: MailSvg,
   newsletter: NewsletterSvg,
+  chat: ChatSvg,
 };

@@ -19,4 +19,9 @@ export const mockItems = [
     name: "Sign up newsletter",
     url: "",
   },
+  {
+    id: "chat",
+    name: "Chat with us",
+    url: "",
+  },
 ];
