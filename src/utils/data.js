@@ -14,4 +14,9 @@ export const mockItems = [
     name: "Contact Form",
     url: "",
   },
+  {
+    id: "newsletter",
+    name: "Sign up newsletter",
+    url: "",
+  },
 ];

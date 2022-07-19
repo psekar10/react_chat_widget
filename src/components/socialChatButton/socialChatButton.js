@@ -1,14 +1,10 @@
 import React from "react";
 import styled from "@emotion/styled";
 
-const SocialChatButton = ({
-  handleSocialIconsToggle,
-  showSocialIcons,
-  showContactForm,
-}) => {
+const SocialChatButton = ({ handleSocialIconsToggle, showXButton }) => {
   return (
     <ChatButton onClick={handleSocialIconsToggle}>
-      {showSocialIcons || showContactForm ? <CloseIcon>x</CloseIcon> : null}
+      {showXButton ? <CloseIcon>x</CloseIcon> : null}
     </ChatButton>
   );
 };
