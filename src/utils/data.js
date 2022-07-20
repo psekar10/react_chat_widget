@@ -25,6 +25,12 @@ export const mockItems = [
     url: "sms:+16476198900;?&body=",
   },
   {
+    id: "youtubeVideo",
+    name: "Youtube",
+    url: "7CqJlxBYj-M",
+  },
+
+  {
     id: "twitter",
     name: "Twitter Profile",
     url: "https://twitter.com/gainnapp",

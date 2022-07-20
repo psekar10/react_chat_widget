@@ -4,6 +4,7 @@ import styled from "@emotion/styled";
 import SocialChatItems from "../socialChatItems";
 import SocialChatButton from "../socialChatButton";
 import SocialContactForm from "../socialContactForm";
+import YoutubeEmbeded from "../youtubeEmbeded";
 import SocialNewsletterForm from "../socialNewsletterForm";
 
 import { mockItems } from "../../utils/data";
@@ -14,17 +15,22 @@ const Chat = (props) => {
 
   const [showSocialIcons, setShowSocialIcons] = useState(false);
   const [showContactForm, setShowContactForm] = useState(false);
+  const [showYoutubeEmbedded, setShowYoutubeEmbedded] = useState({
+    show: false,
+    url: "",
+  });
   const [showNewsletterForm, setShowNewsletterForm] = useState(false);
   const [socialIconLists, setSocialIconLists] = useState([]);
 
   useOutsideAlerter(wrapperRef, setShowSocialIcons);
 
   const handleSocialIconsToggle = () => {
-    showContactForm || showNewsletterForm
+    showContactForm || showNewsletterForm || showYoutubeEmbedded.show
       ? setShowSocialIcons(false)
       : setShowSocialIcons(!showSocialIcons);
     setShowContactForm(false);
     setShowNewsletterForm(false);
+    setShowYoutubeEmbedded({ show: false, url: "" });
   };
 
   const handleItemClick = (item) => {
@@ -34,6 +40,9 @@ const Chat = (props) => {
     } else if (item.id === "newsletter") {
       setShowSocialIcons(false);
       setShowNewsletterForm(true);
+    } else if (item.id === "youtubeVideo") {
+      setShowSocialIcons(false);
+      setShowYoutubeEmbedded({ show: true, url: item.url });
     } else {
       window.open(item.url, "_blank", "noopener,noreferrer");
     }
@@ -54,10 +63,18 @@ const Chat = (props) => {
 
       {showContactForm ? <SocialContactForm /> : null}
       {showNewsletterForm ? <SocialNewsletterForm /> : null}
+      {showYoutubeEmbedded.show ? (
+        <YoutubeEmbeded embeddedLink={showYoutubeEmbedded.url} />
+      ) : null}
 
       <SocialChatButton
         handleSocialIconsToggle={handleSocialIconsToggle}
-        showXButton={showSocialIcons || showContactForm || showNewsletterForm}
+        showXButton={
+          showSocialIcons ||
+          showContactForm ||
+          showNewsletterForm ||
+          showYoutubeEmbedded.show
+        }
       />
     </ChatComponent>
   );

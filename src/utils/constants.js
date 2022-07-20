@@ -19,6 +19,7 @@ export const SvgMapping = {
   telegram: TwitterSvg,
   youtubeChannel: WhatsappSvg,
   googleMaps: ChatSvg,
+  youtubeVideo: WhatsappSvg,
   //
   contact: MailSvg,
   newsletter: NewsletterSvg,

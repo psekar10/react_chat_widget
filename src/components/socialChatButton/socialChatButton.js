@@ -34,8 +34,9 @@ const ChatButton = styled.button`
 const CloseIcon = styled.span`
   position: absolute;
   right: 9px;
-  width: 16px;
-  height: 16px;
+  width: 20px;
+  height: 20px;
+  font-size: 16px;
   bottom: 52px;
   border: 2px solid rgb(255, 255, 255);
   border-radius: 50%;
